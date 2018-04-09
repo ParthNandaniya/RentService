@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rent Service</title>
+        
+        <meta name="viewport" content="width=1024">
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+        <link type="text/css" rel="stylesheet" href="./css/style.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+        <script type="text/javascript" src="../../public/js/main.js"></script>
+<!--        product suggesion in search bar-->
+        <script>
+            var content = [];
+            
+            <% productNames.forEach(function(productNames){ %>
+                content.push({title: "<%= productNames %>"});  
+            <% }); %>
+        </script>
+        
+    </head>
+    <body style="background-color: #f3f1f1;">
+        <div class="ui fixed menu" style="background-color: #fcfcfc;">
+            <div id="nav" class="ui container">
+                <img src="https://cdn.rswebsols.com/wp-content/uploads/2015/08/cropped-rswebsols-icon-568.png" alt="logo" style="border-radius: 1.67em;
+                    width: 30px; height: 30px; margin: auto 0px">
+                <a class="item" href="/">Rent Sevice</a>
+                
+                
+                <a class="ui item green button" href="/products/new" style="margin-left: auto; margin-right: 2px;">
+                    add Product &nbsp;
+<!--                    <i class="plus square outline large icon" style="display: inline"></i>-->
+                    <i class="plus large icon" style="display: inline"></i>
+                </a>
+                
+
+    <!--                 search product-->
+                <form class="ui form fixed" action="/products" method="GET" style="margin: auto auto auto 0px;">
+    <!--
+                    <div class="ui search">
+                        <div class="ui icon input">
+                            <input class="prompt" type="text" placeholder="Search Products...">
+                            <i class="search icon"></i>
+                          </div>
+                          <div class="results"></div>
+                    </div>
+                    <button class="search button">Search</button>
+    -->
+    <!--            <input class="ui search" name="search" type="text" placeholder="search Products...">-->
+                    
+                    <div class="ui search" style="display: inline;">
+                        <div class="ui icon input" style="width: 280px;">
+                            <input class="prompt" type="text" name="search" placeholder="search products" value="<%= req.query.search %>">
+                            <i class="search icon"></i>
+                        </div>
+                        <div class="results"></div>
+                    </div>
+                    <button class="ui green button">Search</button>
+                </form>
+                
+<!--                search bar script-->
+                <script>
+                    $('.ui.search')
+                        .search({
+                            source: content
+                        });
+                </script>
+                
+<!--                 login signup hidden-->
+                
+                    <% if(!currentUser){ %>
+                      <div class="ui right floated" style="margin: auto auto; margin-right: 0px; float: right;">
+                          <div class="ui buttons">
+                              <a class="ui large grey button" href="/register" >signup</a>
+                              <div class="or"></div>
+                              <a class="ui large blue button" href="/login" >login</a>   
+                           </div>
+                       </div>
+                    <% }else{ %>
+                       <div class="ui right floated" style="margin: auto auto; margin-right: 0px; float: right;">
+                           <button class="ui blue large button" style="display: inline; margin-right: 0px;">
+                               <%= currentUser.username %>
+                           </button>
+                           <a class="ui large grey button" href="/logout" >logout</a>
+                        </div>
+                    <% } %>
+                
+            </div>
+        </div>
+        
+        <% if(error && error.length > 0){ %>
+        <div class="ui container" style="margin-top:50px;">
+                <div class="ui warning message">
+<!--                    <i class="close icon"></i>-->
+                    <div class="header">
+                      <%= error %>
+                    </div>
+    <!--                <p>Go to your <b>special offers</b> page to see now.</p>-->
+                </div>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="ui container" style="margin-top: 50px;">
+                <div class="ui success message">
+<!--                    <i class="close icon"></i>-->
+                    <div class="header">
+                      <%= success %> 
+                    </div>
+            <!--            Visit our registration page, then try again-->
+                </div>
+            </div>
+        <% } %>
+        
+        

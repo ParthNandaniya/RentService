@@ -1,0 +1,80 @@
+<% include ../partials/header %>
+
+
+<!--<div id="sidebar1" class="ui vertical fixed menu">
+                <div class='ui header'>Electronics </div>
+                <div class="ui hidden devider"><a class="item" href="pages/tv-and-audio.html">TV and Audio</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/computers.html">Computers</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/phones.html">Phones</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/camera.html">Camera</a></div>
+                
+                <div class='ui header'>Vehicles </div>
+                <div class="ui hidden devider"><a class="item" href="pages/bikes.html">Bikes</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/cars.html">Cars</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/luxury-cars.html">Luxury Cars</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/van.html">Van</a></div>
+                
+                <div class='ui header'>Men's wear</div>
+                <div class="ui hidden devider"><a class="item" href="pages/party-wear.html">Party Wear</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/marriage.html">Marriage</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/blazers.html">Blazers</a></div>
+                <div class="ui hidden devider"><a class="item" href="pages/suits.html">Suits</a></div>           
+                
+                <div class='category'>
+                    Womens's Wear
+                    <div class="item-list">
+                        <a class="item1" href="pages/party-wear.html">Party Wear</a>
+                        <a class="item1" href="pages/marriage.html">Marriage</a>
+                        <a class="item1" href="pages/Dresses.html">Dresses</a>
+                        <a class="item1" href="pages/western-Grows.html">Western Grows</a>
+                    </div>
+                </div>
+                <div class='category'>
+                    Furniture
+                    <div class="item-list">
+                        <a class="item1" href="pages/beds.html">Beds</a>
+                        <a class="item1" href="pages/mattress.html">mattress</a>
+                        <a class="item1" href="pages/blazers.html">Blazers</a>
+                        <a class="item1" href="pages/chairs.html">Chairs</a>
+                    </div>
+                </div>
+                <div class='category'>
+                    Houses
+                    <div class="item-list">
+                        <a class="item1" href="pages/flats.html">Flats</a>
+                        <a class="item1" href="pages/hotel-rooms.html">hotel's room</a>
+                    </div> 
+                </div> 
+            </div> 
+        </div>-->
+
+<div id="mainContainer" class="ui container" style="margin-left: 100px; background-color: #f3f1f1; ">
+            <!-- desktop only -->
+            <div class="ui grid">
+              
+              <!-- computer only -->
+              <div id="main-container" class="four column row">
+                  <% products.forEach(function(product){ %>
+                    <div id="col-cards" class="column">
+                            <div class="ui card">
+                              <a class="image" href="products/<%= product._id %>"><img class="cardIMG" id="card" src="<%= product.img %>" ></a>
+                              <div class="content">
+                                <a class="header" href="products/<%= product._id %>"><%= product.name %></a>
+                                
+                                <p id="description">
+                                  <%- product.desc.substring(0, 50) %>...
+                                </p>
+                                <div>
+                                    <%= product.created.toDateString() %>
+                                    <span style="float: right">Rs. <%= product.price %></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <% }); %>
+                </div>
+            </div>
+        </div>
+
+
+<% include ../partials/footer %>

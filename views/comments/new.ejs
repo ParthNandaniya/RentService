@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<div class="ui main text container segment" style="margin-top: 100px;">
+    <div class="ui huge header">Add New Comment to <%= product.name %></div>
+    <form class="ui form" action="/products/<%= product._id %>/comments" method="POST">
+        <div class="field">
+            <input type="text" name="comment[text]" placeholder="text">
+        </div>
+<!--        <div class="field">
+            <input type="text" name="comment[author]" placeholder="author">
+        </div>-->
+        <input class="ui green big inverted button" type="submit">
+    </form>
+    <a href="/products/<%= product._id %>">Go Back</a>
+</div>
+
+<% include ../partials/footer %>
+

@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<div class="ui main text container segment" style="margin-top: 50px;">
+    <div class="ui huge header">Edit <%= product.name %></div>
+    <form class="ui form" action="/products/<%= product._id %>?_method=PUT " method="POST">
+        <div class="field">
+            <lable class="lable">Title</lable>
+            <input type="text" name="product[name]" value="<%= product.name %>">
+        </div>
+        <div class="field">
+            <lable class="lable">Image</lable>
+            <input type="text" name="product[img]" value="<%= product.img %>">
+        </div>
+        <div class="field">
+            <lable class="lable">Price</lable>
+            <input type="text" name="product[price]" value="<%= product.price %>">
+        </div>
+        <div class="field">
+            <lable class="lable">Description</lable>
+            <textarea name="product[desc]"><%= product.desc %></textarea>
+        </div>
+<!--        <button class="ui green inverted button">Save</button>-->
+        <div class="ui buttons" style="margin-left:470px;">
+            <a class="ui large grey button" href="/products/<%= product._id %>">cancel</a> 
+            <div class="or"></div>
+            <button class="ui large green button">update</button>
+        </div>
+    </form>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+
+<div style="margin-top: 40px;">
+    <div class="ui main text container segment" style="margin-top: 50px;">
+        <div class="ui huge header"><%= product.name %></div>
+        <div class="ui top attached">
+            <div class="item">
+                <img class="ui centered rounded image" style="width:600px; height: 370px;" src="<%= product.img %>" >
+                <div class="ui container content" style="width:600px;">
+                    <span><%= product.created.toDateString() %></span>
+                    <span style="float: right">Rs. <%= product.price %></span>
+                </div>
+                <div class="description" style="width:600px;">
+                    Description : 
+                    <p><%- product.desc %></p>
+                    <p>
+                        <em>submitted by <strong> @<%=product.author.username %> </strong></em>
+                    </p>
+                </div>
+            </div>
+            <!-- only see when author matches -->
+            <% if(currentUser && currentUser._id.equals(product.author.id)){ %>
+                <a class="ui yellow button" href="/products/<%= product._id %>/edit">Edit</a>
+                <form action="/products/<%= product._id %>?_method=DELETE" method="POST" style="display: inline;">
+                    <button class="ui red inverted button" >Delete</button>
+                </form>
+            <% } %>
+        </div>
+
+        <div class = "comments">
+            <fieldset>
+                <legend> Comments </legend>
+                <% product.comments.forEach(function(comment){ %>
+                <div style="margin-bottom: 0.6em;">
+                    <strong> @<%= comment.author.username %> </strong> - <%= comment.text %>
+                    <!-- only see when author matches -->
+                    <% if(currentUser && currentUser._id.equals(comment.author.id)){ %>
+                    <a class="ui yellow mini button" href="/products/<%= product._id %>/comments/<%= comment._id %>/edit" >Edit</a>
+                    <form action="/products/<%= product._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display: inline;">
+                        <button class="ui red mini button" >Delete</button>
+                    </form>
+                    <% } %>
+                </div>
+                <% });  %>
+                <a class="ui green button success" href="<%= product._id %>/comments/new">add comment</a>
+            </fieldset>            
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

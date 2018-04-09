@@ -1,0 +1,36 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "DarePirat",
+  "contributors": [],
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-generator": "^4.15.5",
+    "express-sanitizer": "^1.0.3",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "mongodb": "^3.0.3",
+    "mongoose": "^5.0.7",
+    "npm": "^5.7.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.5.0"
+  },
+  "description": "rent service project vertion 11.5",
+  "main": "app.js",
+  "scripts": {"start":"node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "license": "ISC"
+}

@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment" style="margin-top: 100px;">
+    <div class="ui huge header">Login!</div>
+    <form class="ui form" action="/login" method="POST" style="margin: 20px;">
+        
+           <div class="field" style="margin-top: 5px;">
+            <lable class="lable">User Name</lable>
+            <input type="text" name="username" placeholder="username">
+        </div>
+        <div class="field" style="margin-top: 5px;">
+            <lable class="lable">Password</lable>
+            <input type="password" name="password" placeholder="password">
+        </div>
+        <input class="ui primary submit button" type="submit" style="margin-top: 5px;">
+    </form> 
+</div>
+
+
+<% include ./partials/footer %>
+

@@ -1,6 +1,6 @@
 # RentService
 
-This proect uses latest technology on the web right now.
+this proect uses most of the latest web technology used to build modern site
 
 * ###### Front-end: 
 _HTML, css ( ...semantic ui) , javascript ( ...jQuery )_

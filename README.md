@@ -2,9 +2,12 @@
 
 This proect uses latest technology on the web right now.
 
-Front-end : HTML, css ( ...semantic ui) , javascript ( ...jQuery )
-Back-end : node js, express js, auth(passport js)
-Database : MongoDB
+* ###### Front-end: 
+_HTML, css ( ...semantic ui) , javascript ( ...jQuery )_
+* ###### Back-end:
+_node js, express js, auth(passport js)_
+* ###### Database:
+_MongoDB_
 
 you can check this website at heroku : [ Rent-Service ](http://rent-service.herokuapp.com)
 
